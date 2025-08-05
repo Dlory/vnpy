@@ -5,7 +5,6 @@
 """
 
 # 加载Python标准库
-from logging import INFO
 from time import sleep
 
 # 加载VeighNa核心框架
@@ -15,6 +14,7 @@ from vnpy.trader.engine import MainEngine, LogEngine
 from vnpy.trader.object import ContractData
 from vnpy.trader.constant import Exchange, Product
 from vnpy.trader.event import EVENT_CONTRACT
+from vnpy.trader.logger import logger, INFO
 
 # 加载VeighNa插件模块
 from vnpy_ctp import CtpGateway
@@ -32,13 +32,13 @@ SETTINGS["log.console"] = True      # 在控制台显示日志，方便实时查
 # CTP接口登录信息
 # 以下使用的是SimNow模拟账户信息，初学者可以在SimNow官网申请
 ctp_setting: dict[str, str] = {
-    "用户名": "888888",                       # SimNow账户名
-    "密码": "123456",                         # SimNow密码
-    "经纪商代码": "9999",                     # SimNow经纪商代码固定为9999
-    "交易服务器": "180.168.146.187:10201",    # SimNow交易服务器地址和端口
-    "行情服务器": "180.168.146.187:10211",    # SimNow行情服务器地址和端口
-    "产品名称": "simnow_client_test",         # 产品名称，用于区分不同的客户端
-    "授权编码": "0000000000000000"            # 授权编码，SimNow模拟账户使用默认值即可
+    "用户名": "777000059",                       # SimNow账户名
+    "密码": "A360289a",                         # SimNow密码
+    "经纪商代码": "0001",                     # SimNow经纪商代码固定为9999
+    "交易服务器": "tcp://114.94.3.55:51205",    # SimNow交易服务器地址和端口
+    "行情服务器": "tcp://114.94.3.55:51213",    # SimNow行情服务器地址和端口
+    "产品名称": "ctpbee_gin_3.26",         # 产品名称，用于区分不同的客户端
+    "授权编码": "V5USHJQP6NQYVQMU"            # 授权编码，SimNow模拟账户使用默认值即可
 }
 
 
@@ -123,7 +123,7 @@ def run_recorder() -> None:
         参数:
             event: 包含日志信息的事件对象
         """
-        log_engine.logger.log(INFO, event.data)
+        logger.log(INFO, event.data)
 
     # 注册日志事件处理函数，当有新的日志推送时，会自动调用print_log函数
     event_engine.register(EVENT_RECORDER_LOG, print_log)
