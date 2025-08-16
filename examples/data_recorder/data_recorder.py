@@ -29,6 +29,15 @@ SETTINGS["log.level"] = INFO        # 设置日志级别为INFO，输出详细�
 SETTINGS["log.console"] = True      # 在控制台显示日志，方便实时查看
 
 
+# 配置数据库
+SETTINGS["database.name"] = "mysql"              # 可以根据自己的需求选择数据库，这里使用的是TDengine
+SETTINGS["database.database"] = "vnpy"
+SETTINGS["database.host"] = "127.0.0.1"
+SETTINGS["database.port"] = 3306
+SETTINGS["database.user"] = "root"
+SETTINGS["database.password"] = "123456"
+
+
 # CTP接口登录信息
 # 以下使用的是SimNow模拟账户信息，初学者可以在SimNow官网申请
 ctp_setting: dict[str, str] = {
@@ -46,11 +55,11 @@ ctp_setting: dict[str, str] = {
 # 可以根据需要取消注释来添加更多交易所
 recording_exchanges: list[Exchange] = [
     Exchange.CFFEX,          # 中国金融期货交易所
-    # Exchange.SHFE,         # 上海期货交易所
-    # Exchange.DCE,          # 大连商品交易所
-    # Exchange.CZCE,         # 郑州商品交易所
-    # Exchange.GFEX,         # 广州期货交易所
-    # Exchange.INE,          # 上海国际能源交易中心
+    Exchange.SHFE,         # 上海期货交易所
+    Exchange.DCE,          # 大连商品交易所
+    Exchange.CZCE,         # 郑州商品交易所
+    Exchange.GFEX,         # 广州期货交易所
+    Exchange.INE,          # 上海国际能源交易中心
 ]
 
 
