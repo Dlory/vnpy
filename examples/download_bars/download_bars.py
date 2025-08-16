@@ -45,7 +45,7 @@ def main():
 
     # 要下载数据的起止时间
     start = datetime(2025, 6, 18, tzinfo=DB_TZ)
-    end = datetime(2025, 8, 6, tzinfo=DB_TZ)
+    end = datetime(2025, 8, 16, tzinfo=DB_TZ)
 
     # 遍历列表执行下载
     for vt_symbol in vt_symbols:
@@ -58,7 +58,7 @@ def main():
             exchange=exchange,
             start=start,
             end=end,
-            interval=Interval.MINUTE        # 这里下载最常用的1分钟K线
+            interval=Interval.DAILY        # 这里下载最常用的1分钟K线
         )
 
         # 从数据服务下载数据
